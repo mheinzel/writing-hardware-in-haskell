@@ -1,15 +1,28 @@
 create course
-    sketch out outline.md
-    make slides
+    [.] sketch out outline.md
+    [.] make slides
+        [.] set up tool (pandoc?)
+        [.] follow outline
+        [.] nice diagrams (tool?)
+    [ ] collect resources for further learning
 
 document tool setup
-    how to make installation easy for everyone? nix?
-    test on different machine/OS
+    [.] how to make installation easy for everyone? nix?
+    [.] USB rules etc.
+    [ ] test on different machine/OS
 
 create examples
-    template with nice .pcf file
-    make buttons work
-    provide access to yosys features, e.g. circuit layout
-        Makefile?
-    state machine with input/output
-    (sound output?)
+    [.] template with nice .pcf file
+    [.] blinky
+    [.] input
+        [.] understand IO better
+        [.] make buttons work
+    [ ] provide access to yosys features, e.g. circuit layout
+        [ ] Makefile?
+    [ ] interesting state machine
+    [ ] re-using Haskell abstractions (Lens, State, ...)
+    [ ] (sound output?)
+
+other
+    [.] LICENSE
+    [.] README

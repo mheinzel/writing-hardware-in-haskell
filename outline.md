@@ -1,15 +1,18 @@
 digital circuits
     combinatorial
         logic cells
-        LUTs
     sequential
         clocks
         registers
         (block) RAM
 
 FPGAs
+    vs ASIC
     how do they work?
+        LUTs
+        dedicated blocks
         flashing
+    example: iCE40
     applications
 
 HDLs
@@ -29,4 +32,6 @@ HDLs
 hands-on
     demo
     quick how-to
+        board i/o
+        working with repl
     hacking time!
