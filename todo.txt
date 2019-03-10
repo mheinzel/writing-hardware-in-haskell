@@ -1,0 +1,15 @@
+create course
+    sketch out outline.md
+    make slides
+
+document tool setup
+    how to make installation easy for everyone? nix?
+    test on different machine/OS
+
+create examples
+    template with nice .pcf file
+    make buttons work
+    provide access to yosys features, e.g. circuit layout
+        Makefile?
+    state machine with input/output
+    (sound output?)
