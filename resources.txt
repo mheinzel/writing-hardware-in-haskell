@@ -1,0 +1,8 @@
+examples:
+https://github.com/nesl/ice40_examples
+https://github.com/wd5gnr/icestick
+https://github.com/mgajda/clash-yosys-demo
+http://hackage.haskell.org/package/clash-prelude-0.99.3/docs/Clash-Examples.html
+
+FPGA introductions:
+https://www.allaboutcircuits.com/technical-articles/what-is-an-fpga-introduction-to-programmable-logic-fpga-vs-microcontroller/

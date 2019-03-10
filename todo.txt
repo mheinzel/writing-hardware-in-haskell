@@ -16,7 +16,9 @@ create course
             correctness
 
 document tool setup
-    [.] how to make installation easy for everyone? nix?
+    [.] how to make installation easy for everyone?
+            nix?
+            VM for windows? see ice40_examples
     [.] USB rules etc.
     [ ] test on different machine/OS
 
@@ -29,6 +31,8 @@ create examples
     [.] provide access to yosys features, e.g. circuit layout
         [.] Makefile?
     [ ] interesting state machine
+    [ ] PLL support?
+            [https://github.com/mgajda/clash-yosys-demo/blob/master/README.md]
     [ ] re-using Haskell abstractions (Lens, State, ...)
     [ ] (sound output?)
 
