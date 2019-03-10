@@ -1,3 +1,9 @@
+intro
+    everyone prepared?
+    round of previous experience
+    team up
+    follow along, ask questions, ...
+
 digital circuits
     combinatorial
         logic cells

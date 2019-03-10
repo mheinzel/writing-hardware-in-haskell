@@ -1,10 +1,19 @@
 create course
-    [.] sketch out outline.md
+    [X] sketch out outline.md
     [.] make slides
         [.] set up tool (pandoc?)
         [.] follow outline
         [.] nice diagrams (tool?)
     [ ] collect resources for further learning
+    [ ] more focus on nice features of Clash?
+            how we use types to model domain?
+                statically known size
+                combinatorial vs. clocked
+                clock domains?
+            abstractions
+                sum types
+                polymorphism
+            correctness
 
 document tool setup
     [.] how to make installation easy for everyone? nix?
@@ -17,8 +26,8 @@ create examples
     [.] input
         [.] understand IO better
         [.] make buttons work
-    [ ] provide access to yosys features, e.g. circuit layout
-        [ ] Makefile?
+    [.] provide access to yosys features, e.g. circuit layout
+        [.] Makefile?
     [ ] interesting state machine
     [ ] re-using Haskell abstractions (Lens, State, ...)
     [ ] (sound output?)
@@ -26,3 +35,4 @@ create examples
 other
     [.] LICENSE
     [.] README
+    [ ] update website with link to installation instructions
