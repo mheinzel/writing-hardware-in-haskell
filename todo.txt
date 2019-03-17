@@ -23,13 +23,13 @@ document tool setup
     [ ] test on different machine/OS
 
 create examples
-    [.] template with nice .pcf file
-    [.] blinky
+    [X] template with nice .pcf file
+    [X] blinky
     [.] input
         [.] understand IO better
         [.] make buttons work
-    [.] provide access to yosys features, e.g. circuit layout
-        [.] Makefile?
+    [X] provide access to yosys features, e.g. circuit layout
+        [X] Makefile?
     [ ] interesting state machine
     [ ] PLL support?
             [https://github.com/mgajda/clash-yosys-demo/blob/master/README.md]
@@ -38,5 +38,8 @@ create examples
 
 other
     [.] LICENSE
-    [.] README
+    [X] README
     [ ] update website with link to installation instructions
+    [ ] better solution than unsafeSyncReset???
+    [ ] nice workflow with ghcid or some kind of file-watch
+    [ ] unify Makefiles
