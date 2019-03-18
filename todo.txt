@@ -43,3 +43,4 @@ other
     [ ] better solution than unsafeSyncReset???
     [ ] nice workflow with ghcid or some kind of file-watch
     [ ] unify Makefiles
+    [ ] make sure all Haskell features (language extensions) are explained

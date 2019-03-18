@@ -3,14 +3,20 @@ intro
     round of previous experience
     team up
     follow along, ask questions, ...
+    agenda
+        what we'll leave out
 
 digital circuits
     combinatorial
+        (normally start with boolean algebra and common components, but we'll skip that... just use Haskell operations)
         logic cells
     sequential
         clocks
         registers
-        (block) RAM
+        (block) RAM?
+    automatons
+    i/o
+        debouncing
 
 FPGAs
     vs ASIC
@@ -34,6 +40,10 @@ HDLs
         history
         (short Haskell type-level intro? or interspersed?)
         how does it deal with HW constraints?
+            It must be completely monomorphic
+            It must be completely first-order
+            HiddenClockReset
+            Bundle
 
 hands-on
     demo
@@ -41,3 +51,6 @@ hands-on
         board i/o
         working with repl
     hacking time!
+
+somewhere?
+    unsigned vs bitvector vs ...
