@@ -134,7 +134,7 @@ potentially multiple domains
 
 ```haskell
 register
-    :: HiddenClockReset
+    :: HiddenClockReset domain gated synchronous
     => a
     -> Signal domain a
     -> Signal domain a
@@ -143,11 +143,19 @@ register
 ## Simulating Sequential Circuits
 
 ```haskell
-sampleN :: (Foldable f, NFData a) => Int -> f a -> [a]
+sampleN
+    :: (Foldable f, NFData a)
+    => Int
+    -> f a
+    -> [a]
 ```
 
 ```haskell
-simulate :: (NFData a, NFData b) => (Signal domain1 a -> Signal domain2 b) -> [a] -> [b]
+simulate
+    :: (NFData a, NFData b)
+    => (Signal domain1 a -> Signal domain2 b)
+    -> [a]
+    -> [b]
 ```
 
 ## Loops in Circuits
