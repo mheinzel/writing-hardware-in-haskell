@@ -75,7 +75,7 @@ this gives us incredible potential of abstraction and convenience
 
 # Digital Circuits
 
-## combinatorial
+## Combinatorial Circuits
 
 ~~boolean algebra~~
 
@@ -95,7 +95,7 @@ no
 
 but we don't like that anyways
 
-## algebraic data types
+## Algebraic Data Types
 
 with caveats:
 
@@ -105,18 +105,18 @@ with caveats:
 Vec (n :: Nat) (a :: Type)
 ```
 
-## recursive functions
+## Recursive Functions
 
 umh...
 
-## top level signatures (to be synthesized)
+## Top Level Signatures (to be synthesized)
 
 monomorphic
 
 first-order
 
 
-## sequential
+## Sequential Circuits
 
 aka synchronised
 
@@ -128,7 +128,7 @@ Signal is Applicative
 
 FRP anyone?
 
-## clocks
+## Clocks
 
 potentially multiple domains
 
@@ -140,7 +140,7 @@ register
     -> Signal domain a
 ```
 
-## simulation
+## Simulating Sequential Circuits
 
 ```haskell
 sampleN :: (Foldable f, NFData a) => Int -> f a -> [a]
@@ -150,11 +150,30 @@ sampleN :: (Foldable f, NFData a) => Int -> f a -> [a]
 simulate :: (NFData a, NFData b) => (Signal domain1 a -> Signal domain2 b) -> [a] -> [b]
 ```
 
-## recursion
+## Loops in Circuits
 
+we can have state using recursion
 
-## automata
+## Automata
 
+folding the stream of `Signal` values
+
+```haskell
+mealy
+    :: (s -> i -> (s, o))
+    -> s
+    -> Signal domain i
+    -> Signal domain o
+```
+
+```haskell
+moore
+    :: (s -> i -> s)  -- update
+    -> (s -> o)       -- view
+    -> s
+    -> Signal domain i
+    -> Signal domain o
+```
 
 ## I/O
 
