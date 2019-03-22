@@ -164,7 +164,11 @@ used professionally by Myrtle
 
 ~~boolean algebra~~
 
-~~logic cells~~
+~~logic gates~~
+
+```haskell
+liftA2 (+) :: Maybe Int -> Maybe Int -> Maybe Int
+```
 
 all the power of Haskell!
 
@@ -178,21 +182,95 @@ no
 
 . . .
 
-but we don't like that anyways
+but we don't like those anyways
 
 ## Algebraic Data Types
 
-with caveats:
-
-* size?
+with restrictions:
 
 ```haskell
-Vec (n :: Nat) (a :: Type)
+[Integer]
+```
+
+size?
+
+```haskell
+class BitPack a where
+  type BitSize a :: Nat
+  pack   :: a -> BitVector (BitSize a)
+  unpack :: BitVector (BitSize a) -> a
+```
+
+can be derived generically
+
+## Sized Types
+
+### primitive types
+
+```haskell
+data Unsigned (n :: Nat)
+data Signed (n :: Nat)
+data BitVector (n :: Nat)
+```
+
+```haskell
+10 :: Unsigned 32
+```
+
+## GADTs
+
+```haskell
+data Maybe a
+  = Nothing
+  | Just a
+```
+
+```
+> :k Maybe
+Maybe :: Type -> Type
+> :t Nothing
+Nothing :: Maybe a
+> :t Just
+Just :: a -> Maybe a
+```
+
+```haskell
+data Maybe :: Type -> Type where
+  Nothing :: Maybe a
+  Just :: a -> Maybe a
+```
+
+## Fixed-size Vectors
+
+```haskell
+data Vec :: Nat -> Type -> Type where
+  Nil :: Vec 0 a
+  Cons :: a -> Vec n a -> Vec (n + 1) a
+```
+
+```haskell
+vector :: Vec 3 (Signed 16)
+vector = 1 :> 2 :> 3 :> Nil
 ```
 
 ## Recursive Functions
 
 umh...
+
+## Recursive Functions
+
+recursion on fixed-size types can be unrolled
+
+```haskell
+foldr :: (a -> b -> b) -> b -> Vec n a -> b
+```
+
+![foldr circuit](img/diagram-foldr.png)
+
+## Recursive Functions
+
+we will also see recursive definitions of feedback loops later
+
 
 ## Top Level Signatures (to be synthesized)
 
@@ -201,21 +279,26 @@ monomorphic
 first-order
 
 
+## I/O
+
+pinmap
+
+primitives, Verilog/VHDL interaction
+
+## debounced buttons
+
+```haskell
+button
+    :: HasCallStack
+    => Clock domain source
+    -> Bit
+    -> Signal domain Bit
+```
+
+
 ## Sequential Circuits
 
 aka synchronised
-
-```haskell
-register :: a -> Signal a -> Signal a
-```
-
-Signal is Applicative
-
-FRP anyone?
-
-## Clocks
-
-potentially multiple domains
 
 ```haskell
 register
@@ -224,6 +307,10 @@ register
     -> Signal domain a
     -> Signal domain a
 ```
+
+potentially multiple domains
+
+Signal is Functor, Applicative
 
 ## Simulating Sequential Circuits
 
@@ -243,11 +330,40 @@ simulate
     -> [b]
 ```
 
-## Loops in Circuits
+```
+> take 5 (simulate (register 0)) [1..]
+[0,1,2,3,4]
+```
 
-we can have state using recursion
+## Feedback Loops
 
-## Automata
+```haskell
+-- could also just be `pure 0`
+zeros
+  :: (HiddenClockReset domain gated synchronous, Num a)
+  => Signal domain a
+zeros = register 0 zeros
+```
+
+```
+> sampleN 4 zeros
+[0, 0, 0, 0]
+```
+
+```haskell
+counter
+  :: (HiddenClockReset domain gated synchronous, Num a)
+  => Signal domain a
+counter = _
+```
+
+```
+> sampleN 4 zeros
+[0, 1, 2, 3]
+```
+
+
+## State Machines
 
 folding the stream of `Signal` values
 
@@ -268,19 +384,7 @@ moore
     -> Signal domain o
 ```
 
-## I/O
-
-pinmap
-
-primitives, Verilog/VHDL interaction
-
-```haskell
-button
-    :: HasCallStack
-    => Clock domain source
-    -> Bit
-    -> Signal domain Bit
-```
+similar to Elm architecture, React/Redux
 
 
 # Hacking!
